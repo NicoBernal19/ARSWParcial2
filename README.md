@@ -3,6 +3,8 @@
 
 ### Arquitecturas de Software
 
+### Nicolas Bernal
+
 ## Parcial segundo corte para el cálculo de cuentas de restaurantes.
 
 ### Descripción
