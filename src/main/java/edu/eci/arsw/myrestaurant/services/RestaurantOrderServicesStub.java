@@ -1,18 +1,13 @@
 package edu.eci.arsw.myrestaurant.services;
 
-
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import edu.eci.arsw.myrestaurant.model.Order;
 import edu.eci.arsw.myrestaurant.model.RestaurantProduct;
 import edu.eci.arsw.myrestaurant.beans.BillCalculator;
 import edu.eci.arsw.myrestaurant.model.ProductType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.fasterxml.jackson.*;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 @Service
 public class RestaurantOrderServicesStub implements RestaurantOrderServices {
@@ -86,15 +81,17 @@ public class RestaurantOrderServicesStub implements RestaurantOrderServices {
     }
 
     @Override
-    public HashMap<String,Object>getRestaurantOrders(){
-        HashMap<String, Object>allOrders=new HashMap<>();
+    public List<HashMap<String, Object>>getRestaurantOrders(){
+        List<HashMap<String, Object>>result=new ArrayList<>();
         tableOrders.forEach((tableNumber, order) -> {
-            int total = calc.calculateBill(order, productsMap);
-            allOrders.put("Table Number", tableNumber);
-            allOrders.put("Products", order.getOrderAmountsMap());
-            allOrders.put("Total Bill",total);
+            result.add(new HashMap<String, Object>(){{
+                int total = calc.calculateBill(order, productsMap);
+                put("Table Number", tableNumber);
+                put("Products", order.getOrderAmountsMap());
+                put("Total Bill",total);
+            }});
         });
-        return allOrders;
+        return result;
     }
 
     public static final Map<String, RestaurantProduct> productsMap;

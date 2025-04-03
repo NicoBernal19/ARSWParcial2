@@ -16,8 +16,6 @@
  */
 package edu.eci.arsw.myrestaurant.restcontrollers;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import edu.eci.arsw.myrestaurant.beans.BillCalculator;
 import edu.eci.arsw.myrestaurant.model.Order;
 import edu.eci.arsw.myrestaurant.model.ProductType;
 import edu.eci.arsw.myrestaurant.model.RestaurantProduct;
@@ -31,9 +29,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import static edu.eci.arsw.myrestaurant.services.RestaurantOrderServicesStub.productsMap;
-import static javax.swing.UIManager.put;
 
 /**
  *
