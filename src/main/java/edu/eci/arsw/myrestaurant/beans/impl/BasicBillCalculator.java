@@ -6,7 +6,8 @@ import edu.eci.arsw.myrestaurant.beans.BillCalculator;
 import java.util.Map;
 import org.springframework.stereotype.Service;
 
-@Service
+//Descomentar este Service si se quiere calcular la cuenta sin impuestos
+//@Service
 public class BasicBillCalculator implements BillCalculator {
 
 	@Override

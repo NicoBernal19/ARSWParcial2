@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import edu.eci.arsw.myrestaurant.model.RestaurantProduct;
 import edu.eci.arsw.myrestaurant.beans.TaxesCalculator;
 
+//Comentar este Service si se quiere calcular la cuenta sin impuestos
+@Service
 public class StandardTaxesCalculator implements TaxesCalculator {
 
 	@Override
